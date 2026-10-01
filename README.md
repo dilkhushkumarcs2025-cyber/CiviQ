@@ -284,3 +284,16 @@ Related / Duplicate Detection
 - **Timeline** — Complete history of issue updates.
 - **Resolution Evidence** — Proof submitted after the issue is addressed.
 - **Verification Status** — Community verification of the resolution.
+
+## Civic Map
+
+CiviQ provides an interactive **Civic Map** that visualizes reported and active civic issues based on their geographic locations.
+
+- **Issue Locations** — View civic problems directly on the map.
+- **Issue Categories** — Identify different types of civic problems.
+- **Issue Status** — See whether an issue is reported, assigned, in progress, or resolved.
+- **Issue Density** — Identify areas with a higher concentration of civic problems.
+- **Public Issue Details** — Open an issue from the map to view its details, reports, evidence, and status.
+- **Location-Based Intelligence** — Use geographic information to help identify related reports and understand local civic problem patterns.
+
+> **One Map → Every Public Issue → Clear Civic Visibility**
