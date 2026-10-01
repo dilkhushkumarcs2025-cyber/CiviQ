@@ -297,3 +297,105 @@ CiviQ provides an interactive **Civic Map** that visualizes reported and active 
 - **Location-Based Intelligence** — Use geographic information to help identify related reports and understand local civic problem patterns.
 
 > **One Map → Every Public Issue → Clear Civic Visibility**
+
+## Authority Dashboard
+
+CiviQ provides an **Authority Dashboard** for reviewing, managing, assigning, and tracking civic issues from a centralized interface.
+
+### Key Functions
+
+- **Issue Overview** — View reported, assigned, in-progress, and resolved issues.
+- **Issue Management** — Review issue details, evidence, reports, and location.
+- **Department Assignment** — Assign issues to the responsible department or authority.
+- **Officer Assignment** — Assign issues to responsible personnel for action.
+- **Status Management** — Update the issue lifecycle as work progresses.
+- **Progress Updates** — Add updates so citizens can track the progress.
+- **Resolution Evidence** — Upload evidence after the issue has been addressed.
+- **Analytics** — Monitor issue trends, categories, locations, and resolution activity.
+
+> **One Dashboard → All Public Issues → Clear Action → Transparent Resolution**
+
+## Community Verification
+
+CiviQ allows citizens to verify whether a civic issue marked as **Resolved** has actually been fixed.
+
+- **Resolution Evidence** — Authorities provide photos or supporting evidence of the completed work.
+- **Citizen Review** — Citizens can review the resolution and submitted evidence.
+- **Verify Resolution** — Citizens can confirm that the issue has been resolved.
+- **Reopen Issue** — If the problem still exists, citizens can flag it for review or reopening.
+- **Transparent Status** — The verification result becomes part of the Public Issue timeline.
+
+> **Resolved by Authority → Reviewed by Community → Verified or Reopened**
+
+## System Architecture
+
+CiviQ follows a modular architecture where citizen reports flow through the **AI Intelligence Layer** before reaching the Public Issue and Authority layers.
+
+```text
+                         ┌──────────────────────────┐
+                         │      CITIZEN LAYER       │
+                         │                          │
+                         │  Web / Mobile Interface  │
+                         │  • Report Issue          │
+                         │  • Civic Map             │
+                         │  • Track Issues          │
+                         │  • Verify Resolution     │
+                         └────────────┬─────────────┘
+                                      │
+                                      ▼
+                         ┌──────────────────────────┐
+                         │      API / BACKEND       │
+                         │        FastAPI           │
+                         │                          │
+                         │  • Authentication        │
+                         │  • Reports               │
+                         │  • Public Issues         │
+                         │  • Evidence              │
+                         │  • Verification          │
+                         │  • Authority APIs        │
+                         └────────────┬─────────────┘
+                                      │
+                     ┌────────────────┼────────────────┐
+                     │                │                │
+                     ▼                ▼                ▼
+          ┌────────────────┐ ┌────────────────┐ ┌────────────────┐
+          │  AI INTELLIGENCE│ │   GEO ENGINE   │ │   MEDIA /     │
+          │     LAYER      │ │                │ │   EVIDENCE     │
+          │                │ │ • GPS Matching │ │                │
+          │ • Image AI     │ │ • Geo Clustering│ │ • Photos      │
+          │ • NLP          │ │ • Issue Density│ │ • Resolution   │
+          │ • Embeddings   │ │                │ │   Evidence     │
+          │ • Similarity   │ │                │ │                │
+          └───────┬────────┘ └───────┬────────┘ └───────┬────────┘
+                  │                  │                  │
+                  └──────────────────┼──────────────────┘
+                                     ▼
+                         ┌──────────────────────────┐
+                         │     CIVIQ CORE ENGINE    │
+                         │                          │
+                         │     PUBLIC ISSUE         │
+                         │                          │
+                         │ Reports → Cluster →      │
+                         │ Track → Resolve → Verify │
+                         └────────────┬─────────────┘
+                                      │
+                         ┌────────────┴────────────┐
+                         │                         │
+                         ▼                         ▼
+              ┌──────────────────┐       ┌──────────────────┐
+              │    DATABASE      │       │ AUTHORITY LAYER  │
+              │                  │       │                  │
+              │ PostgreSQL       │       │ • Dashboard      │
+              │ + PostGIS        │       │ • Assignment     │
+              │                  │       │ • Status Updates │
+              │ • Users          │       │ • Analytics      │
+              │ • Reports       │       │ • Resolution     │
+              │ • Issues        │       │   Evidence       │
+              │ • Locations     │       └─────────┬────────┘
+              │ • Timeline      │                 │
+              └──────────────────┘                 ▼
+                                      ┌──────────────────────┐
+                                      │ COMMUNITY VERIFICATION│
+                                      │                      │
+                                      │ Verified / Reopened  │
+                                      └──────────────────────┘
