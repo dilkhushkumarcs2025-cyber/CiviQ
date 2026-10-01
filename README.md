@@ -229,3 +229,44 @@ Citizen Report
               │
               ▼
        Public Issue
+```
+## Public Issue System
+
+CiviQ converts multiple citizen reports about the same real-world civic problem into a single **Public Issue**.
+
+Instead of treating every complaint as a separate case, related reports are connected to one issue, creating a clear and transparent record from reporting to verification.
+
+### How It Works
+
+```text
+Citizen Reports
+      ↓
+AI Analysis
+      ↓
+Related / Duplicate Detection
+      ↓
+┌─────────────────────────────┐
+│     Existing Public Issue?  │
+└──────────────┬──────────────┘
+          Yes  │  No
+               │
+       ┌───────┴────────┐
+       ▼                ▼
+ Join Existing     Create New
+ Public Issue      Public Issue
+       │                │
+       └───────┬────────┘
+               ▼
+        Public Issue
+               ↓
+      Authority Assignment
+               ↓
+          Work Started
+               ↓
+       Progress Updates
+               ↓
+      Resolution Evidence
+               ↓
+     Community Verification
+               ↓
+      Verified / Reopened
