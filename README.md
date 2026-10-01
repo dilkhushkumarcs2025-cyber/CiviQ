@@ -171,4 +171,26 @@ CiviQ follows a complete civic issue lifecycle — from the moment a citizen rep
       │ VERIFIED  │  │ REOPEN /   │
       │           │  │ REVIEW     │
       └───────────┘  └────────────┘
+
+## Core Features
+
+1. **Citizen Reporting** — Report civic problems with photo, description, and GPS location.
+
+2. **AI-Powered Intelligence** — Analyze images, text, and location to understand reported issues.
+
+3. **Issue Clustering** — Detect duplicate or related reports and group them into one Public Issue.
+
+4. **Public Issue System** — Maintain one central record for each real-world civic problem.
+
+5. **Civic Map** — Visualize reported and active civic issues based on their locations.
+
+6. **Live Issue Tracking** — Track issues through Reported → Assigned → In Progress → Resolved.
+
+7. **Authority Dashboard** — Review issues, assign departments, manage status, and monitor progress.
+
+8. **Evidence-Based Resolution** — Store photos, progress updates, and resolution evidence.
+
+9. **Community Verification** — Allow citizens to verify whether a resolved issue has actually been fixed.
+
+10. **Transparency & Accountability** — Maintain a visible issue timeline from the initial report to final verification.
     
