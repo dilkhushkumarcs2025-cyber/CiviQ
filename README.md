@@ -1,3 +1,6 @@
+
+<div align="center">
+           
 # CiviQ
 
 ### Report. Track. Verify.
@@ -12,6 +15,7 @@ and verify civic problems through one transparent platform.
 
 **Report a Problem → Unify Related Reports → Track Resolution → Verify the Outcome**
 
+</div>
 
 ## Table of Contents
 
