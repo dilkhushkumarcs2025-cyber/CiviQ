@@ -399,3 +399,46 @@ CiviQ follows a modular architecture where citizen reports flow through the **AI
                                       │                      │
                                       │ Verified / Reopened  │
                                       └──────────────────────┘
+```
+## Technology Stack
+
+CiviQ uses a modern and scalable technology stack designed for **AI-powered civic intelligence, geospatial analysis, issue tracking, and transparent resolution workflows**.
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Frontend** | React.js + TypeScript | Build the citizen and authority interfaces |
+| **UI & Styling** | Tailwind CSS | Responsive and modern user interface |
+| **Backend** | Python + FastAPI | REST APIs, authentication, issue processing |
+| **Database** | PostgreSQL | Store users, reports, issues, status, and verification data |
+| **Geospatial Database** | PostGIS | Store and analyze geographic locations |
+| **AI / ML** | Computer Vision | Analyze civic issue images |
+| **NLP** | Natural Language Processing | Analyze citizen descriptions |
+| **AI Similarity** | Image Embeddings | Detect visually similar reports |
+| **Issue Intelligence** | Similarity + Geospatial Matching | Detect duplicate and related reports |
+| **Maps** | OpenStreetMap + MapLibre | Display civic issues and locations |
+| **Charts** | Recharts | Analytics and dashboard visualizations |
+| **Development** | VS Code | Development environment |
+| **Version Control** | Git + GitHub | Source code management and collaboration |
+| **Deployment** | Docker + Cloud Infrastructure | Containerized and scalable deployment |
+
+### Technology Flow
+
+```text
+React + TypeScript + Tailwind
+              ↓
+          FastAPI
+              ↓
+     ┌────────┴────────┐
+     ↓                 ↓
+ AI Intelligence   PostgreSQL
+     │              + PostGIS
+     ↓                 │
+Image + Text +        │
+Location Analysis     │
+     └────────┬────────┘
+              ↓
+       Public Issue Engine
+              ↓
+     Authority Dashboard
+              ↓
+    Community Verification
