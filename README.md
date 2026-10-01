@@ -270,3 +270,17 @@ Related / Duplicate Detection
      Community Verification
                ↓
       Verified / Reopened
+```
+
+### Public Issue Contains
+
+- **Issue ID** — Unique identifier for the issue.
+- **Issue Category** — Pothole, garbage, streetlight, waterlogging, damaged road, etc.
+- **Location** — Geographic location of the problem.
+- **Citizen Reports** — Multiple related reports connected to the issue.
+- **Evidence** — Photos and supporting information.
+- **Status** — Current stage of the issue.
+- **Authority Assignment** — Responsible department or authority.
+- **Timeline** — Complete history of issue updates.
+- **Resolution Evidence** — Proof submitted after the issue is addressed.
+- **Verification Status** — Community verification of the resolution.
