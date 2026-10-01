@@ -620,3 +620,26 @@ Authority Action
 Resolution Evidence
    ↓
 Community Verification
+
+
+```
+### Project Vision
+
+> **One Problem. One Public Issue. One Transparent Resolution Journey.**
+
+CiviQ is designed with a scalable vision:
+
+**Campus → City → Multi-City Civic Intelligence**
+
+### Project Information
+
+- **Category:** AI + Civic Technology
+- **Platform:** Web-based Civic Intelligence Platform
+- **Primary Users:** Citizens and Authorities
+- **Core Focus:** Issue Intelligence, Tracking, Evidence, and Verification
+- **Repository:** CiviQ
+- **Development Approach:** Modular, scalable, and deployment-ready architecture
+
+
+
+###~Thank You
