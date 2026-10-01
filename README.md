@@ -13,9 +13,8 @@ and verify civic problems through one transparent platform.
 <br>
 
 **Report a Problem → Unify Related Reports → Track Resolution → Verify the Outcome**
-# 1. About CiviQ
 
-## What is CiviQ?
+# What is CiviQ?
 
 **CiviQ** is an AI-powered civic issue intelligence and resolution tracking platform that connects citizens, public issues, evidence, and authorities through one transparent workflow.
 
@@ -25,39 +24,20 @@ Each Public Issue can then be tracked through its complete lifecycle — from in
 
 CiviQ is built to transform scattered civic complaints into **structured, trackable, and evidence-backed public issues**.
 
----
+## Table of Contents
 
-## Core Idea
-
-The core idea behind CiviQ is:
-
-> **Multiple Citizen Reports → One Public Issue → Transparent Resolution → Community Verification**
-
-Instead of treating every report as an independent complaint, CiviQ connects reports that may refer to the same real-world problem.
-
-### Example
-
-Suppose a large pothole exists on a busy road.
-
-
-`text
-Citizen 1 ──┐
-Citizen 2 ──┤
-Citizen 3 ──┤
-Citizen 4 ──┤
-Citizen 5 ──┤
-     ...    ├──→ AI Analysis
-Citizen 20 ─┘          ↓
-                Related Reports
-                       ↓
-                 Public Issue
-                       ↓
-              Authority Assignment
-                       ↓
-                  Work Started
-                       ↓
-              Resolution Evidence
-                       ↓
-              Citizen Verification
-                       ↓
-              Community Verified
+1. [About CiviQ](#-about-civiq)
+2. [Problem Statement](#-problem-statement)
+3. [Our Solution](#-our-solution)
+4. [Complete Workflow](#-complete-workflow)
+5. [Core Features](#-core-features)
+6. [AI-Powered Intelligence](#-ai-powered-intelligence)
+7. [Public Issue System](#-public-issue-system)
+8. [Civic Map](#-civic-map)
+9. [Authority Dashboard](#-authority-dashboard)
+10. [Community Verification](#-community-verification)
+11. [System Architecture](#-system-architecture)
+12. [Technology Stack](#-technology-stack)
+13. [Project Structure](#-project-structure)
+14. [Roadmap & Future Scope](#-roadmap--future-scope)
+15. [Team, Impact & Project Information](#-team-impact--project-information)
