@@ -194,3 +194,38 @@ CiviQ follows a complete civic issue lifecycle — from the moment a citizen rep
 
 10. **Transparency & Accountability** — Maintain a visible issue timeline from the initial report to final verification.
     
+
+## AI-Powered Intelligence
+
+CiviQ uses AI to analyze **images, text, and location data** from citizen reports to better understand civic problems.
+
+- **Image Analysis** — Identifies the type of civic problem from uploaded photos.
+- **Text Analysis** — Understands the problem description provided by citizens.
+- **Duplicate Detection** — Identifies potentially duplicate reports.
+- **Related Issue Detection** — Finds reports that may refer to the same real-world problem.
+- **Report Clustering** — Groups related reports into a single **Public Issue**.
+- **Location Matching** — Uses location information to help identify geographically related reports.
+
+```text
+Citizen Report
+      │
+      ├── Photo
+      ├── Description
+      └── Location
+             │
+             ▼
+       ┌─────────────┐
+       │ AI ANALYSIS │
+       └──────┬──────┘
+              │
+      ┌───────┼────────┐
+      ▼       ▼        ▼
+    Image    Text    Location
+   Analysis Analysis  Matching
+      │       │        │
+      └───────┼────────┘
+              ▼
+    Related / Duplicate Reports
+              │
+              ▼
+       Public Issue
