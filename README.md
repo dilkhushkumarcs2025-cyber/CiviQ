@@ -532,3 +532,48 @@ CiviQ/
 ├── docker-compose.yml
 ├── README.md
 └── LICENSE
+```
+
+## Roadmap & Future Scope
+
+CiviQ is designed to grow from a **pilot-level civic issue platform** into a scalable civic intelligence system.
+
+### Development Roadmap
+
+```text
+Phase 1
+MVP
+  ↓
+Citizen Reporting
+Public Issues
+Civic Map
+Issue Tracking
+Community Verification
+  ↓
+Phase 2
+AI Intelligence
+  ↓
+Image Classification
+Duplicate Detection
+Related Issue Clustering
+Geospatial Intelligence
+  ↓
+Phase 3
+Authority Platform
+  ↓
+Department Assignment
+Officer Workflow
+Resolution Evidence
+Analytics & SLA Tracking
+  ↓
+Phase 4
+Pilot Deployment
+  ↓
+Campus / Local Community
+  ↓
+City-Level Deployment
+  ↓
+Phase 5
+Multi-City Platform
+  ↓
+Scalable Civic Intelligence
