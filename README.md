@@ -442,3 +442,93 @@ Location Analysis     │
      Authority Dashboard
               ↓
     Community Verification
+```
+
+## Project Structure
+
+```text
+CiviQ/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Navbar/
+│   │   │   ├── Footer/
+│   │   │   ├── IssueCard/
+│   │   │   ├── IssueTimeline/
+│   │   │   ├── IssueStatus/
+│   │   │   ├── MapView/
+│   │   │   ├── ReportForm/
+│   │   │   ├── EvidenceGallery/
+│   │   │   ├── VerificationCard/
+│   │   │   └── StatCard/
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Home/
+│   │   │   ├── ReportIssue/
+│   │   │   ├── CivicMap/
+│   │   │   ├── PublicIssues/
+│   │   │   ├── IssueDetails/
+│   │   │   ├── Dashboard/
+│   │   │   ├── Notifications/
+│   │   │   └── Profile/
+│   │   │
+│   │   ├── admin/
+│   │   │   ├── Dashboard/
+│   │   │   ├── Issues/
+│   │   │   ├── Departments/
+│   │   │   ├── Users/
+│   │   │   └── Analytics/
+│   │   │
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   ├── utils/
+│   │   ├── types/
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   │
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.ts
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   ├── reports/
+│   │   │   ├── issues/
+│   │   │   ├── evidence/
+│   │   │   ├── verification/
+│   │   │   ├── authority/
+│   │   │   └── analytics/
+│   │   │
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   ├── ai/
+│   │   ├── database/
+│   │   └── main.py
+│   │
+│   ├── requirements.txt
+│   └── Dockerfile
+│
+├── ai/
+│   ├── computer_vision/
+│   ├── nlp/
+│   ├── embeddings/
+│   ├── similarity/
+│   └── geospatial/
+│
+├── database/
+│   ├── migrations/
+│   └── seeds/
+│
+├── docs/
+│   ├── architecture/
+│   └── api/
+│
+├── .env.example
+├── .gitignore
+├── docker-compose.yml
+├── README.md
+└── LICENSE
