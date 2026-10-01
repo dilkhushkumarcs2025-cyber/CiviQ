@@ -41,7 +41,7 @@ CiviQ analyzes potentially related reports and brings them together into a singl
 
 ### Core Flow
 
-``text
+text
 Citizen Report
       ↓
 AI Analysis
