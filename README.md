@@ -577,3 +577,46 @@ Phase 5
 Multi-City Platform
   ↓
 Scalable Civic Intelligence
+```
+
+## Team, Impact & Project Information
+
+### Team
+
+**Team Name:** DEBUG OR DIE
+
+**Team Members:**
+- Dilkhush Kumar
+- Uditya Raj
+- Prince Kumar
+- Aman Kumar
+- Saurabh Kumar
+
+**Institution:** Meerut Institute of Technology
+
+### Project
+
+**Project Name:** CiviQ
+
+**Tagline:** Report. Track. Verify.
+
+**Problem Statement:** AI-Powered Civic Issue Intelligence & Resolution Tracking Platform
+
+### Expected Impact
+
+CiviQ aims to make civic problem reporting more **structured, transparent, trackable, and verifiable** by connecting citizen reports into Public Issues and providing a clear resolution journey.
+
+```text
+Citizen
+   ↓
+Report
+   ↓
+AI Intelligence
+   ↓
+Public Issue
+   ↓
+Authority Action
+   ↓
+Resolution Evidence
+   ↓
+Community Verification
