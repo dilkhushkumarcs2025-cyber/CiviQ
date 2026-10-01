@@ -3,207 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiviQ | Flow of Solution</title>
 
-    <link rel="stylesheet" href="style.css">
+    <title>CiviQ — Report. Track. Verify.</title>
+
+    <meta
+        name="description"
+        content="CiviQ is an AI-powered civic intelligence and issue resolution platform."
+    >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="slide">
+    <!-- ================= NAVBAR ================= -->
 
-        <!-- Header -->
-        <header class="header">
-            <div class="title-area">
-                <span class="title-line"></span>
-                <h1>FLOW OF SOLUTION</h1>
-            </div>
+    <header class="navbar" id="navbar">
 
-            <div class="header-line">
-                <span></span>
-            </div>
-        </header>
+        <div class="nav-container">
 
+            <a href="#home" class="logo">
+                <span class="logo-mark">C</span>
+                <span class="logo-text">CiviQ</span>
+            </a>
 
-        <!-- Background -->
-        <div class="watermark">
-            CIVIQ
+            <nav class="nav-links" id="navLinks">
+
+                <a href="#home" class="active">Home</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#issues">Civic Issues</a>
+                <a href="#about">About</a>
+
+                <a href="#report" class="nav-report">
+                    Report an Issue
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a href="#login" class="login-link">Login</a>
+
+            </nav>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
         </div>
 
-
-        <!-- Flow -->
-        <section class="flow">
-
-            <!-- Step 1 -->
-            <div class="step">
-                <div class="number">01</div>
-
-                <div class="content">
-                    <h2>CIVIC PROBLEM</h2>
-                    <p>
-                        Potholes • Garbage • Broken Streetlights •
-                        Waterlogging • Damaged Roads
-                    </p>
-                </div>
-            </div>
-
-            <div class="arrow">↓</div>
+    </header>
 
 
-            <!-- Step 2 -->
-            <div class="step">
-                <div class="number">02</div>
+    <!-- ================= HERO ================= -->
 
-                <div class="content">
-                    <h2>CITIZEN REPORT</h2>
-                    <p>
-                        Photo + GPS Location + Description
-                    </p>
-                </div>
-            </div>
+    <main>
 
-            <div class="arrow">↓</div>
+        <section class="hero" id="home">
 
+            <div class="hero-container">
 
-            <!-- Step 3 -->
-            <div class="step">
-                <div class="number">03</div>
+                <div class="hero-content">
 
-                <div class="content">
-                    <h2>AI ANALYSIS</h2>
-                    <p>
-                        Image + Text + Location
-                        <br>
-                        Issue Classification & Similarity Detection
-                    </p>
-                </div>
-            </div>
-
-            <div class="arrow">↓</div>
-
-
-            <!-- Decision -->
-            <div class="decision">
-
-                <h2>04. RELATED REPORT?</h2>
-
-                <div class="decision-options">
-
-                    <div class="option">
-                        <span>YES</span>
-                        <strong>JOIN EXISTING</strong>
-                        <small>PUBLIC ISSUE</small>
+                    <div class="eyebrow">
+                        <span class="live-dot"></span>
+                        Civic intelligence platform
                     </div>
 
-                    <div class="option">
-                        <span>NO</span>
-                        <strong>CREATE NEW</strong>
-                        <small>PUBLIC ISSUE</small>
+                    <h1>
+                        Report.
+                        <span>Track.</span>
+                        Verify.
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        AI-Powered Civic Intelligence &
+                        Issue Resolution Platform
+                    </p>
+
+                    <p class="hero-description">
+                        Report civic problems with evidence, track their
+                        progress transparently, and help verify their
+                        resolution — all in one place.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#report" class="btn btn-primary">
+                            Report an Issue
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="#issues" class="btn btn-secondary">
+                            Explore Civic Issues
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="hero-trust">
+
+                        <div class="trust-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            GPS Evidence
+                        </div>
+
+                        <div class="trust-item">
+                            <i class="fa-solid fa-brain"></i>
+                            AI Assisted
+                        </div>
+
+                        <div class="trust-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Transparent
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
 
-            <div class="arrow">↓</div>
+                <!-- HERO VISUAL -->
 
+                <div class="hero-visual">
 
-            <!-- Step 5 -->
-            <div class="step highlight">
-                <div class="number">05</div>
+                    <div class="map-card">
 
-                <div class="content">
-                    <h2>PUBLIC ISSUE</h2>
-                    <p>
-                        Reports + Evidence + GPS + Status
-                    </p>
-                </div>
-            </div>
+                        <div class="map-top">
 
-            <div class="arrow">↓</div>
+                            <div>
+                                <span class="small-label">
+                                    LIVE CIVIC MAP
+                                </span>
 
+                                <h3>Meerut Civic Issues</h3>
+                            </div>
 
-            <!-- Step 6 -->
-            <div class="step authority">
-                <div class="number">06</div>
+                            <div class="map-status">
+                                <span></span>
+                                Live
+                            </div>
 
-                <div class="content">
-                    <h2>AUTHORITY DASHBOARD</h2>
-                    <p>
-                        Verify → Assign → Track
-                    </p>
-                </div>
-            </div>
+                        </div>
 
-            <div class="arrow">↓</div>
+                        <div class="fake-map">
 
+                            <div class="road road-one"></div>
+                            <div class="road road-two"></div>
+                            <div class="road road-three"></div>
+                            <div class="road road-four"></div>
 
-            <!-- Step 7 -->
-            <div class="step">
-                <div class="number">07</div>
+                            <div class="map-area area-one"></div>
+                            <div class="map-area area-two"></div>
+                            <div class="map-area area-three"></div>
 
-                <div class="content">
-                    <h2>WORK STARTED</h2>
-                    <p>
-                        Progress updates remain visible to citizens
-                    </p>
-                </div>
-            </div>
+                            <div class="map-pin pin-one">
+                                <span></span>
+                            </div>
 
-            <div class="arrow">↓</div>
+                            <div class="map-pin pin-two">
+                                <span></span>
+                            </div>
 
+                            <div class="map-pin pin-three">
+                                <span></span>
+                            </div>
 
-            <!-- Step 8 -->
-            <div class="step">
-                <div class="number">08</div>
+                            <div class="map-pin pin-four">
+                                <span></span>
+                            </div>
 
-                <div class="content">
-                    <h2>RESOLUTION</h2>
-                    <p>
-                        Authority uploads completion evidence
-                    </p>
-                </div>
-            </div>
+                            <div class="map-label">
+                                <i class="fa-solid fa-location-dot"></i>
+                                27 active issues
+                            </div>
 
-            <div class="arrow">↓</div>
+                        </div>
 
-
-            <!-- Step 9 -->
-            <div class="step verification">
-                <div class="number">09</div>
-
-                <div class="content">
-                    <h2>COMMUNITY VERIFICATION</h2>
-                    <p>
-                        Citizen Feedback + Verification
-                    </p>
-                </div>
-            </div>
-
-            <div class="arrow">↓</div>
-
-
-            <!-- Final -->
-            <div class="final-box">
-
-                <div class="final-option success">
-                    <span>✓</span>
-                    <div>
-                        <strong>VERIFIED</strong>
-                        <small>ISSUE RESOLVED</small>
                     </div>
-                </div>
 
-                <div class="final-option reopen">
-                    <span>↻</span>
-                    <div>
-                        <strong>REOPEN / REVIEW</strong>
-                        <small>RETURN TO AUTHORITY ACTION</small>
+
+                    <!-- Floating Issue Card -->
+
+                    <div class="floating-card issue-card">
+
+                        <div class="issue-icon">
+                            <i class="fa-solid fa-road"></i>
+                        </div>
+
+                        <div class="issue-info">
+
+                            <strong>
+                                Road damage
+                            </strong>
+
+                            <span>
+                                14 citizen reports
+                            </span>
+
+                            <div class="mini-progress">
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="issue-status">
+                            In Progress
+                        </div>
+
                     </div>
+
+
+                    <!-- Floating Resolution Card -->
+
+                    <div class="floating-card resolved-card">
+
+                        <div class="resolved-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>Issue resolved</strong>
+                            <span>Community verified</span>
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -211,19 +246,698 @@
         </section>
 
 
-        <!-- Bottom -->
-        <footer>
-            <div class="orange-line"></div>
+        <!-- ================= STATS ================= -->
 
-            <div class="footer-text">
-                <strong>CiviQ</strong>
-                <span>Report. Track. Verify.</span>
+        <section class="stats-section">
+
+            <div class="stats-container">
+
+                <div class="stat">
+
+                    <strong class="counter" data-target="1284">
+                        0
+                    </strong>
+
+                    <span>Issues Reported</span>
+
+                </div>
+
+                <div class="stat">
+
+                    <strong class="counter" data-target="746">
+                        0
+                    </strong>
+
+                    <span>Issues Resolved</span>
+
+                </div>
+
+                <div class="stat">
+
+                    <strong class="counter" data-target="582">
+                        0
+                    </strong>
+
+                    <span>Community Verified</span>
+
+                </div>
+
+                <div class="stat">
+
+                    <strong class="counter" data-target="3240">
+                        0
+                    </strong>
+
+                    <span>Citizens Participating</span>
+
+                </div>
+
             </div>
 
-            <div class="green-line"></div>
+        </section>
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section class="section how-section" id="how-it-works">
+
+            <div class="section-heading">
+
+                <span class="section-tag">
+                    HOW IT WORKS
+                </span>
+
+                <h2>
+                    From public problem
+                    <br>
+                    to verified resolution.
+                </h2>
+
+                <p>
+                    CiviQ connects citizens, evidence and authorities
+                    through a transparent issue lifecycle.
+                </p>
+
+            </div>
+
+
+            <div class="process">
+
+                <div class="process-line"></div>
+
+                <!-- STEP 1 -->
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+
+                    <h3>Report</h3>
+
+                    <p>
+                        Submit a civic issue with a photo,
+                        location and description.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 2 -->
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+
+                    <h3>AI Analyze</h3>
+
+                    <p>
+                        AI analyzes the report and identifies
+                        related or duplicate issues.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 3 -->
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+
+                    <h3>Track</h3>
+
+                    <p>
+                        Follow the public issue through its
+                        complete resolution timeline.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 4 -->
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <h3>Verify</h3>
+
+                    <p>
+                        Citizens verify resolution using
+                        evidence and community feedback.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WHY CIVIQ ================= -->
+
+        <section class="section why-section" id="about">
+
+            <div class="why-grid">
+
+                <div class="why-content">
+
+                    <span class="section-tag">
+                        WHY CIVIQ
+                    </span>
+
+                    <h2>
+                        More than a complaint portal.
+                    </h2>
+
+                    <p>
+                        CiviQ turns scattered citizen reports into
+                        structured, evidence-backed public issues
+                        that can be tracked from reporting to
+                        verified resolution.
+                    </p>
+
+                    <a href="#how-it-works" class="text-link">
+                        See how CiviQ works
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon orange">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <h3>
+                            Public Issue Clustering
+                        </h3>
+
+                        <p>
+                            Multiple reports about the same
+                            problem can become one public issue.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon blue">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                        </div>
+
+                        <h3>
+                            Evidence-Based Reporting
+                        </h3>
+
+                        <p>
+                            Photos, GPS and descriptions create
+                            stronger issue evidence.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon purple">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+
+                        <h3>
+                            Complete Timeline
+                        </h3>
+
+                        <p>
+                            Track verification, assignment,
+                            progress and resolution.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon green">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+
+                        <h3>
+                            Community Verification
+                        </h3>
+
+                        <p>
+                            Citizens can help confirm whether
+                            a reported issue is actually resolved.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CIVIC MAP ================= -->
+
+        <section class="section issues-section" id="issues">
+
+            <div class="section-heading split-heading">
+
+                <div>
+
+                    <span class="section-tag">
+                        CIVIC ISSUES
+                    </span>
+
+                    <h2>
+                        See what is happening
+                        <br>
+                        around your community.
+                    </h2>
+
+                </div>
+
+                <a href="#issues" class="outline-btn">
+                    Explore all issues
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="issue-dashboard">
+
+                <div class="dashboard-map">
+
+                    <div class="map-grid"></div>
+
+                    <div class="dashboard-road r1"></div>
+                    <div class="dashboard-road r2"></div>
+                    <div class="dashboard-road r3"></div>
+                    <div class="dashboard-road r4"></div>
+
+                    <button class="dashboard-pin p1">
+                        <i class="fa-solid fa-road"></i>
+                    </button>
+
+                    <button class="dashboard-pin p2">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                    <button class="dashboard-pin p3">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </button>
+
+                    <button class="dashboard-pin p4">
+                        <i class="fa-solid fa-droplet"></i>
+                    </button>
+
+                    <div class="map-location-card">
+
+                        <span>
+                            CURRENT AREA
+                        </span>
+
+                        <strong>
+                            Civic Issue Map
+                        </strong>
+
+                        <small>
+                            27 active public issues
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="issue-list">
+
+                    <div class="issue-list-header">
+
+                        <div>
+                            <span>PUBLIC ISSUES</span>
+                            <strong>27 active</strong>
+                        </div>
+
+                        <button class="filter-btn" id="filterBtn">
+                            <i class="fa-solid fa-sliders"></i>
+                            Filter
+                        </button>
+
+                    </div>
+
+
+                    <div class="issue-row">
+
+                        <div class="list-icon road-icon">
+                            <i class="fa-solid fa-road"></i>
+                        </div>
+
+                        <div class="list-content">
+
+                            <strong>
+                                Damaged road
+                            </strong>
+
+                            <span>
+                                Shastri Nagar · 14 reports
+                            </span>
+
+                        </div>
+
+                        <span class="status progress">
+                            In Progress
+                        </span>
+
+                    </div>
+
+
+                    <div class="issue-row">
+
+                        <div class="list-icon garbage-icon">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+
+                        <div class="list-content">
+
+                            <strong>
+                                Garbage accumulation
+                            </strong>
+
+                            <span>
+                                Sector 4 · 8 reports
+                            </span>
+
+                        </div>
+
+                        <span class="status verified">
+                            Verified
+                        </span>
+
+                    </div>
+
+
+                    <div class="issue-row">
+
+                        <div class="list-icon light-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+
+                        <div class="list-content">
+
+                            <strong>
+                                Streetlight not working
+                            </strong>
+
+                            <span>
+                                University Road · 5 reports
+                            </span>
+
+                        </div>
+
+                        <span class="status reported">
+                            Reported
+                        </span>
+
+                    </div>
+
+
+                    <div class="issue-row">
+
+                        <div class="list-icon water-icon">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+
+                        <div class="list-content">
+
+                            <strong>
+                                Waterlogging
+                            </strong>
+
+                            <span>
+                                Delhi Road · 11 reports
+                            </span>
+
+                        </div>
+
+                        <span class="status progress">
+                            In Progress
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ISSUE LIFECYCLE ================= -->
+
+        <section class="section lifecycle-section">
+
+            <div class="section-heading">
+
+                <span class="section-tag">
+                    ISSUE LIFECYCLE
+                </span>
+
+                <h2>
+                    Every issue has a visible journey.
+                </h2>
+
+                <p>
+                    No black box. Every important stage is visible
+                    to citizens and authorities.
+                </p>
+
+            </div>
+
+
+            <div class="lifecycle">
+
+                <div class="life-step active">
+                    <span>01</span>
+                    <strong>Reported</strong>
+                </div>
+
+                <div class="life-connector"></div>
+
+                <div class="life-step">
+                    <span>02</span>
+                    <strong>Verified</strong>
+                </div>
+
+                <div class="life-connector"></div>
+
+                <div class="life-step">
+                    <span>03</span>
+                    <strong>Assigned</strong>
+                </div>
+
+                <div class="life-connector"></div>
+
+                <div class="life-step">
+                    <span>04</span>
+                    <strong>Work Started</strong>
+                </div>
+
+                <div class="life-connector"></div>
+
+                <div class="life-step">
+                    <span>05</span>
+                    <strong>Resolved</strong>
+                </div>
+
+                <div class="life-connector"></div>
+
+                <div class="life-step final">
+                    <span>06</span>
+                    <strong>Community Verified</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REPORT CTA ================= -->
+
+        <section class="report-section" id="report">
+
+            <div class="report-container">
+
+                <div class="report-content">
+
+                    <span class="section-tag light">
+                        SEE A PROBLEM?
+                    </span>
+
+                    <h2>
+                        Make it visible.
+                    </h2>
+
+                    <p>
+                        One report can bring attention to a problem.
+                        Multiple reports can reveal its real scale.
+                        CiviQ helps turn those reports into action.
+                    </p>
+
+                    <a href="#login" class="btn btn-white">
+                        Report an Issue
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="report-visual">
+
+                    <div class="report-phone">
+
+                        <div class="phone-top"></div>
+
+                        <div class="phone-header">
+                            <strong>CiviQ</strong>
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <div class="phone-image">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+
+                        <div class="phone-field">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Location detected
+                        </div>
+
+                        <div class="phone-field">
+                            <i class="fa-solid fa-align-left"></i>
+                            Describe the issue...
+                        </div>
+
+                        <button class="phone-button">
+                            Submit Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer id="login">
+
+            <div class="footer-container">
+
+                <div class="footer-brand">
+
+                    <a href="#home" class="logo footer-logo">
+                        <span class="logo-mark">C</span>
+                        <span class="logo-text">CiviQ</span>
+                    </a>
+
+                    <p>
+                        AI-powered civic intelligence for
+                        transparent issue resolution.
+                    </p>
+
+                    <span class="copyright">
+                        © 2026 CiviQ. Built for better communities.
+                    </span>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Platform</h4>
+
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#issues">Civic Issues</a>
+                    <a href="#report">Report an Issue</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Company</h4>
+
+                    <a href="#about">About CiviQ</a>
+                    <a href="#about">Technology</a>
+                    <a href="#about">Contact</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Connect</h4>
+
+                    <a href="#">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
         </footer>
 
     </main>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
