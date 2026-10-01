@@ -33,33 +33,8 @@ and verify civic problems through one transparent platform.
 
 ## What is CiviQ?
 
-**CiviQ** is an **AI-powered civic issue intelligence and resolution tracking platform** that transforms scattered citizen reports into structured, trackable **Public Issues**.
+**CiviQ** is an AI-powered platform that helps citizens **report, track, and verify civic problems** such as potholes, garbage, broken streetlights, waterlogging, and damaged roads.
 
-Citizens can report civic problems such as **potholes, garbage, broken streetlights, waterlogging, and damaged roads** using photos, descriptions, and location data.
+Citizens submit a **photo, description, and location** of a problem. CiviQ identifies related reports and groups them into one **Public Issue**, which can then be tracked until resolution.
 
-CiviQ analyzes potentially related reports and brings them together into a single **Public Issue**, allowing the problem to be tracked from reporting to resolution.
-
-### Core Flow
-
-text
-Citizen Report
-      ↓
-AI Analysis
-      ↓
-Related / Duplicate Reports
-      ↓
-One Public Issue
-      ↓
-Authority Assignment
-      ↓
-Work Started
-      ↓
-Progress Updates
-      ↓
-Resolution Evidence
-      ↓
-Community Verification
-
-Each Public Issue can then be tracked through its complete lifecycle — from initial reporting and authority assignment to work progress, resolution evidence, and community verification.
-
-CiviQ is built to transform scattered civic complaints into **structured, trackable, and evidence-backed public issues**.
+> **Multiple Reports → One Public Issue → Transparent Resolution → Community Verification**s
