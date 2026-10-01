@@ -74,3 +74,101 @@ The platform follows a simple 7-step process:
 - **Verify** — Citizens/community can verify whether the issue has actually been resolved.
 
 > **CiviQ turns individual complaints into one transparent resolution journey.**
+
+## Complete Workflow
+
+CiviQ follows a complete civic issue lifecycle — from the moment a citizen reports a problem to the final community verification.
+
+### End-to-End Flow
+
+```text
+┌──────────────────────┐
+│    CITIZEN REPORT    │
+│                      │
+│  • Photo             │
+│  • Description       │
+│  • GPS Location      │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│    AI ANALYSIS       │
+│                      │
+│  Image + Text + GPS  │
+│  • Issue Category     │
+│  • Similar Reports    │
+│  • Location Matching  │
+└──────────┬───────────┘
+           │
+           ▼
+      ┌─────────────┐
+      │ Related     │
+      │ Report?     │
+      └──────┬──────┘
+             │
+       ┌─────┴─────┐
+      YES          NO
+       │            │
+       ▼            ▼
+┌──────────────┐  ┌────────────────┐
+│ JOIN EXISTING│  │ CREATE NEW     │
+│ PUBLIC ISSUE │  │ PUBLIC ISSUE   │
+└──────┬───────┘  └───────┬────────┘
+       │                   │
+       └─────────┬─────────┘
+                 ▼
+       ┌────────────────────┐
+       │    PUBLIC ISSUE    │
+       │                    │
+       │ • Issue ID         │
+       │ • Location         │
+       │ • Reports          │
+       │ • Evidence         │
+       │ • Status           │
+       └──────────┬─────────┘
+                  │
+                  ▼
+       ┌────────────────────┐
+       │ AUTHORITY DASHBOARD│
+       │                    │
+       │ • Review Issue     │
+       │ • Assign Department│
+       │ • Assign Officer   │
+       └──────────┬─────────┘
+                  │
+                  ▼
+       ┌────────────────────┐
+       │    WORK STARTED    │
+       │                    │
+       │ • Status Update    │
+       │ • Progress         │
+       │ • Work Evidence    │
+       └──────────┬─────────┘
+                  │
+                  ▼
+       ┌────────────────────┐
+       │      RESOLVED      │
+       │                    │
+       │ Resolution Evidence│
+       │ Before / After     │
+       └──────────┬─────────┘
+                  │
+                  ▼
+       ┌────────────────────┐
+       │ COMMUNITY          │
+       │ VERIFICATION       │
+       │                    │
+       │ Is the problem     │
+       │ actually fixed?    │
+       └──────────┬─────────┘
+                  │
+             ┌────┴────┐
+             │         │
+           YES         NO
+             │         │
+             ▼         ▼
+      ┌───────────┐  ┌────────────┐
+      │ VERIFIED  │  │ REOPEN /   │
+      │           │  │ REVIEW     │
+      └───────────┘  └────────────┘
+    
