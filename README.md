@@ -12,15 +12,6 @@ and verify civic problems through one transparent platform.
 
 **Report a Problem → Unify Related Reports → Track Resolution → Verify the Outcome**
 
-# What is CiviQ?
-
-**CiviQ** is an AI-powered civic issue intelligence and resolution tracking platform that connects citizens, public issues, evidence, and authorities through one transparent workflow.
-
-CiviQ enables citizens to report public problems with **photos, descriptions, and location data**. The platform analyzes these reports to identify potentially related or duplicate reports and groups them into a single **Public Issue**.
-
-Each Public Issue can then be tracked through its complete lifecycle — from initial reporting and authority assignment to work progress, resolution evidence, and community verification.
-
-CiviQ is built to transform scattered civic complaints into **structured, trackable, and evidence-backed public issues**.
 
 ## Table of Contents
 
@@ -39,3 +30,13 @@ CiviQ is built to transform scattered civic complaints into **structured, tracka
 13. [Project Structure](#-project-structure)
 14. [Roadmap & Future Scope](#-roadmap--future-scope)
 15. [Team, Impact & Project Information](#-team-impact--project-information)
+
+# About CiviQ?
+
+**CiviQ** is an AI-powered civic issue intelligence and resolution tracking platform that connects citizens, public issues, evidence, and authorities through one transparent workflow.
+
+CiviQ enables citizens to report public problems with **photos, descriptions, and location data**. The platform analyzes these reports to identify potentially related or duplicate reports and groups them into a single **Public Issue**.
+
+Each Public Issue can then be tracked through its complete lifecycle — from initial reporting and authority assignment to work progress, resolution evidence, and community verification.
+
+CiviQ is built to transform scattered civic complaints into **structured, trackable, and evidence-backed public issues**.
