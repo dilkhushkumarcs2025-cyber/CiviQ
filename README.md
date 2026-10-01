@@ -171,7 +171,7 @@ CiviQ follows a complete civic issue lifecycle — from the moment a citizen rep
       │ VERIFIED  │  │ REOPEN /   │
       │           │  │ REVIEW     │
       └───────────┘  └────────────┘
-
+```
 ## Core Features
 
 1. **Citizen Reporting** — Report civic problems with photo, description, and GPS location.
