@@ -38,3 +38,21 @@ and verify civic problems through one transparent platform.
 Citizens submit a **photo, description, and location** of a problem. CiviQ identifies related reports and groups them into one **Public Issue**, which can then be tracked until resolution.
 
 > **Multiple Reports → One Public Issue → Transparent Resolution → Community Verification**s
+
+
+## Problem Statement
+
+Citizens face everyday civic problems such as **potholes, garbage, broken streetlights, waterlogging, and damaged roads**, but reporting these problems does not always provide a clear, transparent, and trackable path to resolution.
+
+Multiple citizens may report the **same problem separately**, creating scattered and duplicate reports. Citizens may also have limited visibility into **who is handling the issue, what progress has been made, and whether the problem has actually been resolved**.
+
+### Key Challenges
+
+- Multiple reports for the same civic problem
+- Scattered information and duplicate complaints
+- Limited visibility into issue progress
+- Unclear responsibility and status
+- Lack of resolution evidence
+- Limited verification after an issue is marked resolved
+
+> **Civic problems are being reported, but they are not always properly connected, tracked, and verified.**
