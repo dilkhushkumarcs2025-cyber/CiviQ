@@ -56,3 +56,21 @@ Multiple citizens may report the **same problem separately**, creating scattered
 - Limited verification after an issue is marked resolved
 
 > **Civic problems are being reported, but they are not always properly connected, tracked, and verified.**
+
+## Our Solution
+
+**CiviQ** transforms scattered citizen reports into a single, structured **Public Issue** and tracks it from reporting to verified resolution.
+
+The platform follows a simple 7-step process:
+
+**Report → Understand → Unify → Track → Act → Resolve → Verify**
+
+- **Report** — Citizens submit a problem with photo, description, and location.
+- **Understand** — AI analyzes the report and identifies the type of civic issue.
+- **Unify** — Related or duplicate reports are grouped into one Public Issue.
+- **Track** — Citizens can follow the issue and its current status.
+- **Act** — The responsible authority reviews and works on the issue.
+- **Resolve** — Resolution progress and supporting evidence are added.
+- **Verify** — Citizens/community can verify whether the issue has actually been resolved.
+
+> **CiviQ turns individual complaints into one transparent resolution journey.**
