@@ -1,943 +1,729 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CiviQ — Report. Track. Verify.</title>
-
-    <meta
-        name="description"
-        content="CiviQ is an AI-powered civic intelligence and issue resolution platform."
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
-    <link rel="stylesheet" href="style.css">
+    <title>CiviQ - AI-Powered Civic Issue Intelligence & Resolution Tracking</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#0f172a',
+                        accent: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-indigo-500 selection:text-white">
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25">
+                    <i class="fa-solid fa-city text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold tracking-tight text-slate-900">CIVI<span
+                            class="text-indigo-600">Q</span></span>
+                </div>
+            </div>
 
-    <header class="navbar" id="navbar">
-
-        <div class="nav-container">
-
-            <a href="#home" class="logo">
-                <span class="logo-mark">C</span>
-                <span class="logo-text">CiviQ</span>
-            </a>
-
-            <nav class="nav-links" id="navLinks">
-
-                <a href="#home" class="active">Home</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#issues">Civic Issues</a>
-                <a href="#about">About</a>
-
-                <a href="#report" class="nav-report">
-                    Report an Issue
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-                <a href="#login" class="login-link">Login</a>
-
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-slate-600 text-sm">
+                <a href="#features" class="hover:text-indigo-600 transition">Features</a>
+                <a href="#workflow" class="hover:text-indigo-600 transition">How It Works</a>
+                <a href="#map" class="hover:text-indigo-600 transition">Live Heatmap</a>
+                <a href="#track" class="hover:text-indigo-600 transition">Track Issue</a>
             </nav>
 
-            <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <div class="hidden md:flex items-center space-x-4">
+                <button onclick="openReportModal()"
+                    class="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-violet-600 hover:opacity-95 text-white font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-indigo-500/20 transition transform active:scale-95 text-sm">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>Report Issue</span>
+                </button>
 
+                <!-- Auth Container -->
+                <div id="authContainer">
+                    <button onclick="openLoginModal()"
+                        class="flex items-center space-x-2 border border-slate-300 hover:border-indigo-600 hover:text-indigo-600 text-slate-700 font-semibold px-4 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Login / Register</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="md:hidden flex items-center space-x-2">
+                <button onclick="toggleMobileMenu()" class="text-slate-700 p-2 text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars" id="menuIcon"></i>
+                </button>
+            </div>
         </div>
 
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3">
+            <a href="#features" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">Features</a>
+            <a href="#workflow" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">How It
+                Works</a>
+            <a href="#map" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">Live Heatmap</a>
+            <a href="#track" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">Track Issue</a>
+            <div class="pt-3 border-t border-slate-100 flex flex-col space-y-2">
+                <button onclick="openReportModal(); toggleMobileMenu();"
+                    class="w-full bg-indigo-600 text-white font-semibold py-2.5 rounded-xl text-center">Report
+                    Issue</button>
+                <div id="mobileAuthContainer">
+                    <button onclick="openLoginModal(); toggleMobileMenu();"
+                        class="w-full border border-slate-300 text-slate-700 font-semibold py-2.5 rounded-xl text-center">Login
+                        / Register</button>
+                </div>
+            </div>
+        </div>
     </header>
 
-
-    <!-- ================= HERO ================= -->
-
-    <main>
-
-        <section class="hero" id="home">
-
-            <div class="hero-container">
-
-                <div class="hero-content">
-
-                    <div class="eyebrow">
-                        <span class="live-dot"></span>
-                        Civic intelligence platform
-                    </div>
-
-                    <h1>
-                        Report.
-                        <span>Track.</span>
-                        Verify.
-                    </h1>
-
-                    <p class="hero-subtitle">
-                        AI-Powered Civic Intelligence &
-                        Issue Resolution Platform
-                    </p>
-
-                    <p class="hero-description">
-                        Report civic problems with evidence, track their
-                        progress transparently, and help verify their
-                        resolution — all in one place.
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <a href="#report" class="btn btn-primary">
-                            Report an Issue
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                        <a href="#issues" class="btn btn-secondary">
-                            Explore Civic Issues
-                            <i class="fa-solid fa-map-location-dot"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="hero-trust">
-
-                        <div class="trust-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            GPS Evidence
-                        </div>
-
-                        <div class="trust-item">
-                            <i class="fa-solid fa-brain"></i>
-                            AI Assisted
-                        </div>
-
-                        <div class="trust-item">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            Transparent
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- HERO VISUAL -->
-
-                <div class="hero-visual">
-
-                    <div class="map-card">
-
-                        <div class="map-top">
-
-                            <div>
-                                <span class="small-label">
-                                    LIVE CIVIC MAP
-                                </span>
-
-                                <h3>Meerut Civic Issues</h3>
-                            </div>
-
-                            <div class="map-status">
-                                <span></span>
-                                Live
-                            </div>
-
-                        </div>
-
-                        <div class="fake-map">
-
-                            <div class="road road-one"></div>
-                            <div class="road road-two"></div>
-                            <div class="road road-three"></div>
-                            <div class="road road-four"></div>
-
-                            <div class="map-area area-one"></div>
-                            <div class="map-area area-two"></div>
-                            <div class="map-area area-three"></div>
-
-                            <div class="map-pin pin-one">
-                                <span></span>
-                            </div>
-
-                            <div class="map-pin pin-two">
-                                <span></span>
-                            </div>
-
-                            <div class="map-pin pin-three">
-                                <span></span>
-                            </div>
-
-                            <div class="map-pin pin-four">
-                                <span></span>
-                            </div>
-
-                            <div class="map-label">
-                                <i class="fa-solid fa-location-dot"></i>
-                                27 active issues
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Floating Issue Card -->
-
-                    <div class="floating-card issue-card">
-
-                        <div class="issue-icon">
-                            <i class="fa-solid fa-road"></i>
-                        </div>
-
-                        <div class="issue-info">
-
-                            <strong>
-                                Road damage
-                            </strong>
-
-                            <span>
-                                14 citizen reports
-                            </span>
-
-                            <div class="mini-progress">
-                                <span></span>
-                            </div>
-
-                        </div>
-
-                        <div class="issue-status">
-                            In Progress
-                        </div>
-
-                    </div>
-
-
-                    <!-- Floating Resolution Card -->
-
-                    <div class="floating-card resolved-card">
-
-                        <div class="resolved-icon">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-
-                        <div>
-                            <strong>Issue resolved</strong>
-                            <span>Community verified</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= STATS ================= -->
-
-        <section class="stats-section">
-
-            <div class="stats-container">
-
-                <div class="stat">
-
-                    <strong class="counter" data-target="1284">
-                        0
-                    </strong>
-
-                    <span>Issues Reported</span>
-
-                </div>
-
-                <div class="stat">
-
-                    <strong class="counter" data-target="746">
-                        0
-                    </strong>
-
-                    <span>Issues Resolved</span>
-
-                </div>
-
-                <div class="stat">
-
-                    <strong class="counter" data-target="582">
-                        0
-                    </strong>
-
-                    <span>Community Verified</span>
-
-                </div>
-
-                <div class="stat">
-
-                    <strong class="counter" data-target="3240">
-                        0
-                    </strong>
-
-                    <span>Citizens Participating</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= HOW IT WORKS ================= -->
-
-        <section class="section how-section" id="how-it-works">
-
-            <div class="section-heading">
-
-                <span class="section-tag">
-                    HOW IT WORKS
-                </span>
-
-                <h2>
-                    From public problem
-                    <br>
-                    to verified resolution.
-                </h2>
-
-                <p>
-                    CiviQ connects citizens, evidence and authorities
-                    through a transparent issue lifecycle.
-                </p>
-
-            </div>
-
-
-            <div class="process">
-
-                <div class="process-line"></div>
-
-                <!-- STEP 1 -->
-
-                <div class="process-item">
-
-                    <div class="process-number">
-                        01
-                    </div>
-
-                    <div class="process-icon">
-                        <i class="fa-solid fa-camera"></i>
-                    </div>
-
-                    <h3>Report</h3>
-
-                    <p>
-                        Submit a civic issue with a photo,
-                        location and description.
-                    </p>
-
-                </div>
-
-
-                <!-- STEP 2 -->
-
-                <div class="process-item">
-
-                    <div class="process-number">
-                        02
-                    </div>
-
-                    <div class="process-icon">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-
-                    <h3>AI Analyze</h3>
-
-                    <p>
-                        AI analyzes the report and identifies
-                        related or duplicate issues.
-                    </p>
-
-                </div>
-
-
-                <!-- STEP 3 -->
-
-                <div class="process-item">
-
-                    <div class="process-number">
-                        03
-                    </div>
-
-                    <div class="process-icon">
-                        <i class="fa-solid fa-route"></i>
-                    </div>
-
-                    <h3>Track</h3>
-
-                    <p>
-                        Follow the public issue through its
-                        complete resolution timeline.
-                    </p>
-
-                </div>
-
-
-                <!-- STEP 4 -->
-
-                <div class="process-item">
-
-                    <div class="process-number">
-                        04
-                    </div>
-
-                    <div class="process-icon">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </div>
-
-                    <h3>Verify</h3>
-
-                    <p>
-                        Citizens verify resolution using
-                        evidence and community feedback.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= WHY CIVIQ ================= -->
-
-        <section class="section why-section" id="about">
-
-            <div class="why-grid">
-
-                <div class="why-content">
-
-                    <span class="section-tag">
-                        WHY CIVIQ
-                    </span>
-
-                    <h2>
-                        More than a complaint portal.
-                    </h2>
-
-                    <p>
-                        CiviQ turns scattered citizen reports into
-                        structured, evidence-backed public issues
-                        that can be tracked from reporting to
-                        verified resolution.
-                    </p>
-
-                    <a href="#how-it-works" class="text-link">
-                        See how CiviQ works
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                </div>
-
-
-                <div class="feature-grid">
-
-                    <div class="feature-card">
-
-                        <div class="feature-icon orange">
-                            <i class="fa-solid fa-layer-group"></i>
-                        </div>
-
-                        <h3>
-                            Public Issue Clustering
-                        </h3>
-
-                        <p>
-                            Multiple reports about the same
-                            problem can become one public issue.
-                        </p>
-
-                    </div>
-
-
-                    <div class="feature-card">
-
-                        <div class="feature-icon blue">
-                            <i class="fa-solid fa-location-crosshairs"></i>
-                        </div>
-
-                        <h3>
-                            Evidence-Based Reporting
-                        </h3>
-
-                        <p>
-                            Photos, GPS and descriptions create
-                            stronger issue evidence.
-                        </p>
-
-                    </div>
-
-
-                    <div class="feature-card">
-
-                        <div class="feature-icon purple">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-
-                        <h3>
-                            Complete Timeline
-                        </h3>
-
-                        <p>
-                            Track verification, assignment,
-                            progress and resolution.
-                        </p>
-
-                    </div>
-
-
-                    <div class="feature-card">
-
-                        <div class="feature-icon green">
-                            <i class="fa-solid fa-people-group"></i>
-                        </div>
-
-                        <h3>
-                            Community Verification
-                        </h3>
-
-                        <p>
-                            Citizens can help confirm whether
-                            a reported issue is actually resolved.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CIVIC MAP ================= -->
-
-        <section class="section issues-section" id="issues">
-
-            <div class="section-heading split-heading">
-
-                <div>
-
-                    <span class="section-tag">
-                        CIVIC ISSUES
-                    </span>
-
-                    <h2>
-                        See what is happening
-                        <br>
-                        around your community.
-                    </h2>
-
-                </div>
-
-                <a href="#issues" class="outline-btn">
-                    Explore all issues
-                    <i class="fa-solid fa-arrow-right"></i>
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-32 overflow-hidden bg-gradient-to-b from-indigo-50/70 via-white to-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span
+                class="inline-flex items-center space-x-2 bg-indigo-100 text-indigo-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6 shadow-sm">
+                <i class="fa-solid fa-shield-halved text-indigo-600"></i>
+                <span>Transparent Governance & Issue Tracking Platform</span>
+            </span>
+            <h1
+                class="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight mb-6">
+                Empowering Citizens to Build Cleaner, Smarter <span class="text-indigo-600">Communities Together</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Report everyday civic problems instantly. Our AI clusters duplicate reports, assigns responsibilities to
+                authorities, and ensures verified resolution[cite: 3].
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button onclick="openReportModal()"
+                    class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-xl shadow-indigo-500/30 transition transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-camera mr-2"></i> Report Civic Issue
+                </button>
+                <a href="#track"
+                    class="w-full sm:w-auto bg-white border border-slate-300 hover:border-slate-400 text-slate-700 font-semibold text-lg px-8 py-4 rounded-2xl shadow-sm transition">
+                    <i class="fa-solid fa-magnifying-glass mr-2"></i> Track Complaint
                 </a>
-
             </div>
 
-
-            <div class="issue-dashboard">
-
-                <div class="dashboard-map">
-
-                    <div class="map-grid"></div>
-
-                    <div class="dashboard-road r1"></div>
-                    <div class="dashboard-road r2"></div>
-                    <div class="dashboard-road r3"></div>
-                    <div class="dashboard-road r4"></div>
-
-                    <button class="dashboard-pin p1">
-                        <i class="fa-solid fa-road"></i>
-                    </button>
-
-                    <button class="dashboard-pin p2">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-
-                    <button class="dashboard-pin p3">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </button>
-
-                    <button class="dashboard-pin p4">
-                        <i class="fa-solid fa-droplet"></i>
-                    </button>
-
-                    <div class="map-location-card">
-
-                        <span>
-                            CURRENT AREA
-                        </span>
-
-                        <strong>
-                            Civic Issue Map
-                        </strong>
-
-                        <small>
-                            27 active public issues
-                        </small>
-
-                    </div>
-
+            <!-- Stats Bar -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                    <div class="text-3xl font-extrabold text-indigo-600 mb-1">14,420+</div>
+                    <div class="text-sm font-medium text-slate-500">Issues Reported</div>
                 </div>
-
-
-                <div class="issue-list">
-
-                    <div class="issue-list-header">
-
-                        <div>
-                            <span>PUBLIC ISSUES</span>
-                            <strong>27 active</strong>
-                        </div>
-
-                        <button class="filter-btn" id="filterBtn">
-                            <i class="fa-solid fa-sliders"></i>
-                            Filter
-                        </button>
-
-                    </div>
-
-
-                    <div class="issue-row">
-
-                        <div class="list-icon road-icon">
-                            <i class="fa-solid fa-road"></i>
-                        </div>
-
-                        <div class="list-content">
-
-                            <strong>
-                                Damaged road
-                            </strong>
-
-                            <span>
-                                Shastri Nagar · 14 reports
-                            </span>
-
-                        </div>
-
-                        <span class="status progress">
-                            In Progress
-                        </span>
-
-                    </div>
-
-
-                    <div class="issue-row">
-
-                        <div class="list-icon garbage-icon">
-                            <i class="fa-solid fa-trash"></i>
-                        </div>
-
-                        <div class="list-content">
-
-                            <strong>
-                                Garbage accumulation
-                            </strong>
-
-                            <span>
-                                Sector 4 · 8 reports
-                            </span>
-
-                        </div>
-
-                        <span class="status verified">
-                            Verified
-                        </span>
-
-                    </div>
-
-
-                    <div class="issue-row">
-
-                        <div class="list-icon light-icon">
-                            <i class="fa-solid fa-lightbulb"></i>
-                        </div>
-
-                        <div class="list-content">
-
-                            <strong>
-                                Streetlight not working
-                            </strong>
-
-                            <span>
-                                University Road · 5 reports
-                            </span>
-
-                        </div>
-
-                        <span class="status reported">
-                            Reported
-                        </span>
-
-                    </div>
-
-
-                    <div class="issue-row">
-
-                        <div class="list-icon water-icon">
-                            <i class="fa-solid fa-droplet"></i>
-                        </div>
-
-                        <div class="list-content">
-
-                            <strong>
-                                Waterlogging
-                            </strong>
-
-                            <span>
-                                Delhi Road · 11 reports
-                            </span>
-
-                        </div>
-
-                        <span class="status progress">
-                            In Progress
-                        </span>
-
-                    </div>
-
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                    <div class="text-3xl font-extrabold text-emerald-600 mb-1">13,180</div>
+                    <div class="text-sm font-medium text-slate-500">Successfully Resolved</div>
                 </div>
-
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                    <div class="text-3xl font-extrabold text-violet-600 mb-1">99.2%</div>
+                    <div class="text-sm font-medium text-slate-500">AI Clustering Rate</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                    <div class="text-3xl font-extrabold text-amber-600 mb-1">4.9/5</div>
+                    <div class="text-sm font-medium text-slate-500">Citizen Rating</div>
+                </div>
             </div>
+        </div>
+    </section>
 
-        </section>
-
-
-        <!-- ================= ISSUE LIFECYCLE ================= -->
-
-        <section class="section lifecycle-section">
-
-            <div class="section-heading">
-
-                <span class="section-tag">
-                    ISSUE LIFECYCLE
-                </span>
-
-                <h2>
-                    Every issue has a visible journey.
+    <!-- Detailed Workflow / How We Solve Problems -->
+    <section id="workflow" class="py-24 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-extrabold text-indigo-600 uppercase tracking-widest mb-3">End-to-End Lifecycle
                 </h2>
-
-                <p>
-                    No black box. Every important stage is visible
-                    to citizens and authorities.
-                </p>
-
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">How CiviQ Resolves Civic
+                    Problems</h3>
+                <p class="mt-4 text-slate-600">A rigorous 7-stage architecture ensuring absolute accountability and
+                    transparency[cite: 3].</p>
             </div>
 
-
-            <div class="lifecycle">
-
-                <div class="life-step active">
-                    <span>01</span>
-                    <strong>Reported</strong>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition relative group">
+                    <div
+                        class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-extrabold text-lg mb-6 shadow-sm">
+                        01</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Citizen Report</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Citizens capture photos, exact GPS location, and
+                        descriptions of potholes, garbage, or broken streetlights[cite: 2, 3].</p>
                 </div>
-
-                <div class="life-connector"></div>
-
-                <div class="life-step">
-                    <span>02</span>
-                    <strong>Verified</strong>
+                <!-- Step 2 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition relative group">
+                    <div
+                        class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-extrabold text-lg mb-6 shadow-sm">
+                        02</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">AI Intelligence</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Computer Vision and NLP analyze images and text to
+                        categorize issues and detect duplicates instantly[cite: 3, 5].</p>
                 </div>
-
-                <div class="life-connector"></div>
-
-                <div class="life-step">
-                    <span>03</span>
-                    <strong>Assigned</strong>
+                <!-- Step 3 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition relative group">
+                    <div
+                        class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-extrabold text-lg mb-6 shadow-sm">
+                        03</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Unifying Cases</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Multiple reports of the same physical problem get
+                        clustered into a single master Public Issue[cite: 3].</p>
                 </div>
-
-                <div class="life-connector"></div>
-
-                <div class="life-step">
-                    <span>04</span>
-                    <strong>Work Started</strong>
+                <!-- Step 4 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition relative group">
+                    <div
+                        class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-extrabold text-lg mb-6 shadow-sm">
+                        04</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Live Tracking</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Citizens monitor real-time progress timelines,
+                        assigned departments, and status updates openly[cite: 3, 6].</p>
                 </div>
-
-                <div class="life-connector"></div>
-
-                <div class="life-step">
-                    <span>05</span>
-                    <strong>Resolved</strong>
+                <!-- Step 5 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition relative group">
+                    <div
+                        class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-extrabold text-lg mb-6 shadow-sm">
+                        05</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Authority Action</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Municipal authorities verify issues, assign field
+                        teams, and advance work stages via the admin console[cite: 3, 4].</p>
                 </div>
-
-                <div class="life-connector"></div>
-
-                <div class="life-step final">
-                    <span>06</span>
-                    <strong>Community Verified</strong>
+                <!-- Step 6 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition relative group">
+                    <div
+                        class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-extrabold text-lg mb-6 shadow-sm">
+                        06</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Resolution Proof</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Field workers upload photographic completion
+                        evidence once on-site work is successfully finished[cite: 3].</p>
                 </div>
+                <!-- Step 7 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:shadow-xl transition relative group md:col-span-2 lg:col-span-2">
+                    <div
+                        class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center font-extrabold text-lg mb-6 shadow-sm">
+                        07</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Community Verification</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Local citizens review resolution proof and provide
+                        ratings or request reviews if work is unsatisfactory[cite: 3, 4].</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Live Regional Heatmap & State Complaint Stats -->
+    <section id="map" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-extrabold text-indigo-600 uppercase tracking-widest mb-3">Geospatial
+                    Intelligence</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Live State & Regional
+                    Complaint Heatmap</h3>
+                <p class="mt-4 text-slate-600">Real-time analysis showing complaint density and resolution efficiency
+                    across states.</p>
             </div>
 
-        </section>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <!-- Visual Map Simulator Box -->
+                <div class="lg:col-span-2 bg-slate-900 p-8 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+                    <div
+                        class="absolute top-4 right-4 bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Live GIS Feed Active</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-6 flex items-center space-x-2">
+                        <i class="fa-solid fa-earth-americas text-indigo-400"></i>
+                        <span>India Civic Density Map</span>
+                    </h4>
 
-
-        <!-- ================= REPORT CTA ================= -->
-
-        <section class="report-section" id="report">
-
-            <div class="report-container">
-
-                <div class="report-content">
-
-                    <span class="section-tag light">
-                        SEE A PROBLEM?
-                    </span>
-
-                    <h2>
-                        Make it visible.
-                    </h2>
-
-                    <p>
-                        One report can bring attention to a problem.
-                        Multiple reports can reveal its real scale.
-                        CiviQ helps turn those reports into action.
-                    </p>
-
-                    <a href="#login" class="btn btn-white">
-                        Report an Issue
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                </div>
-
-
-                <div class="report-visual">
-
-                    <div class="report-phone">
-
-                        <div class="phone-top"></div>
-
-                        <div class="phone-header">
-                            <strong>CiviQ</strong>
-                            <i class="fa-solid fa-bell"></i>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                            <span class="text-xs text-slate-400 font-semibold uppercase">Highest Complaint State</span>
+                            <div class="text-lg font-bold text-white mt-1">Uttar Pradesh (3,840 Issues)</div>
+                            <div class="w-full bg-slate-700 h-2 rounded-full mt-3 overflow-hidden">
+                                <div class="bg-indigo-500 h-full w-[85%]"></div>
+                            </div>
                         </div>
-
-                        <div class="phone-image">
-                            <i class="fa-solid fa-camera"></i>
+                        <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                            <span class="text-xs text-slate-400 font-semibold uppercase">Fastest Resolution Hub</span>
+                            <div class="text-lg font-bold text-white mt-1">Delhi NCR (94% Resolved)</div>
+                            <div class="w-full bg-slate-700 h-2 rounded-full mt-3 overflow-hidden">
+                                <div class="bg-emerald-500 h-full w-[94%]"></div>
+                            </div>
                         </div>
-
-                        <div class="phone-field">
-                            <i class="fa-solid fa-location-dot"></i>
-                            Location detected
-                        </div>
-
-                        <div class="phone-field">
-                            <i class="fa-solid fa-align-left"></i>
-                            Describe the issue...
-                        </div>
-
-                        <button class="phone-button">
-                            Submit Report
-                        </button>
-
                     </div>
 
+                    <div class="flex flex-wrap gap-3 pt-4 border-t border-slate-800 text-xs text-slate-400">
+                        <span class="flex items-center space-x-1.5"><span
+                                class="w-3 h-3 rounded-full bg-red-500"></span> <span>High Density
+                                (Potholes/Garbage)</span></span>
+                        <span class="flex items-center space-x-1.5"><span
+                                class="w-3 h-3 rounded-full bg-amber-500"></span> <span>Moderate Density</span></span>
+                        <span class="flex items-center space-x-1.5"><span
+                                class="w-3 h-3 rounded-full bg-emerald-500"></span> <span>Resolved Zone</span></span>
+                    </div>
                 </div>
 
+                <!-- State Leaderboard List -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                    <h4 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Top Reporting Regions
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-2xl">
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm">1. Uttar Pradesh</p>
+                                <p class="text-xs text-slate-500">Meerut, Noida, Lucknow</p>
+                            </div>
+                            <span
+                                class="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1 rounded-xl">3,840</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-2xl">
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm">2. Maharashtra</p>
+                                <p class="text-xs text-slate-500">Mumbai, Pune</p>
+                            </div>
+                            <span
+                                class="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1 rounded-xl">2,910</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-2xl">
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm">3. Karnataka</p>
+                                <p class="text-xs text-slate-500">Bengaluru</p>
+                            </div>
+                            <span
+                                class="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1 rounded-xl">2,150</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-2xl">
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm">4. Delhi NCR</p>
+                                <p class="text-xs text-slate-500">New Delhi, Gurgaon</p>
+                            </div>
+                            <span
+                                class="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1 rounded-xl">1,890</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Complaint Section -->
+    <section id="track" class="py-24 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-xs font-extrabold text-indigo-600 uppercase tracking-widest mb-3">Real-Time Status</h2>
+            <h3 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-4">Track Your Complaint or Issue</h3>
+            <p class="text-slate-600 mb-8 max-w-xl mx-auto">Enter your unique complaint tracking ID (e.g., #CIV-8492) to
+                view live progress and authority remarks[cite: 3, 6].</p>
+
+            <div
+                class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm max-w-2xl mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="text" id="trackIdInput" placeholder="Enter Complaint ID (e.g. CIV-2026-849)"
+                    class="flex-1 bg-white border border-slate-300 rounded-2xl px-5 py-4 text-slate-800 focus:outline-none focus:border-indigo-600 font-medium">
+                <button onclick="trackComplaint()"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-indigo-500/20 transition whitespace-nowrap">
+                    Track Status
+                </button>
+            </div>
+            <div id="trackResult"
+                class="mt-6 hidden text-left bg-indigo-50/60 border border-indigo-200 p-6 rounded-2xl max-w-2xl mx-auto">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-indigo-950 text-base" id="resTitle">Pothole Repair on NH-58</span>
+                    <span class="bg-amber-100 text-amber-800 text-xs font-extrabold px-3 py-1 rounded-full"
+                        id="resStatus">In Progress</span>
+                </div>
+                <p class="text-xs text-slate-600 mb-4" id="resMeta">Reported by Citizen • Assigned to Public Works
+                    Department</p>
+                <div class="w-full bg-slate-200 h-2 rounded-full mb-3 overflow-hidden">
+                    <div class="bg-indigo-600 h-full w-[65%]" id="resBar"></div>
+                </div>
+                <p class="text-xs text-slate-700 font-medium" id="resRemark">Latest Update: Field team dispatched with
+                    asphalt patching unit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold">
+                    <i class="fa-solid fa-city"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight">CIVIQ</span>
+            </div>
+            <p class="text-sm text-slate-400">© 2026 CiviQ Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- LOGIN / REGISTER MODAL -->
+    <div id="loginModal"
+        class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+            class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeLoginModal()"
+                class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Tabs -->
+            <div class="flex bg-slate-100 p-1.5 rounded-2xl mb-6">
+                <button onclick="switchTab('login')" id="loginTabBtn"
+                    class="flex-1 py-2.5 text-sm font-bold rounded-xl bg-white text-slate-900 shadow-sm transition">Login</button>
+                <button onclick="switchTab('register')" id="registerTabBtn"
+                    class="flex-1 py-2.5 text-sm font-bold rounded-xl text-slate-500 transition">Register</button>
             </div>
 
-        </section>
-
-
-        <!-- ================= FOOTER ================= -->
-
-        <footer id="login">
-
-            <div class="footer-container">
-
-                <div class="footer-brand">
-
-                    <a href="#home" class="logo footer-logo">
-                        <span class="logo-mark">C</span>
-                        <span class="logo-text">CiviQ</span>
-                    </a>
-
-                    <p>
-                        AI-powered civic intelligence for
-                        transparent issue resolution.
-                    </p>
-
-                    <span class="copyright">
-                        © 2026 CiviQ. Built for better communities.
-                    </span>
-
+            <!-- LOGIN FORM -->
+            <form id="loginFormSection" onsubmit="handleAuthSubmit(event, 'login')" class="space-y-4">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-1">Welcome Back</h3>
+                <p class="text-xs text-slate-500 mb-4">Enter credentials to access your dashboard.</p>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Mobile
+                        Number</label>
+                    <input type="tel" id="loginMobile" required placeholder="10-digit mobile number"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600">
                 </div>
-
-
-                <div class="footer-column">
-
-                    <h4>Platform</h4>
-
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#issues">Civic Issues</a>
-                    <a href="#report">Report an Issue</a>
-
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Password (Min
+                        8 Characters)</label>
+                    <div class="relative">
+                        <input type="password" id="loginPassword" required minlength="8" placeholder="••••••••"
+                            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600 pr-12">
+                        <button type="button" onclick="togglePasswordVisibility('loginPassword', 'loginEyeIcon')"
+                            class="absolute right-4 top-3.5 text-slate-400 hover:text-slate-700">
+                            <i class="fa-solid fa-eye" id="loginEyeIcon"></i>
+                        </button>
+                    </div>
                 </div>
-
-
-                <div class="footer-column">
-
-                    <h4>Company</h4>
-
-                    <a href="#about">About CiviQ</a>
-                    <a href="#about">Technology</a>
-                    <a href="#about">Contact</a>
-
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Select
+                        Role</label>
+                    <select id="loginRole"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600">
+                        <option value="Citizen">Citizen</option>
+                        <option value="Authority / Admin">Authority / Admin</option>
+                        <option value="Moderator">Moderator</option>
+                    </select>
                 </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-indigo-500/20 transition mt-2">
+                    Login Now
+                </button>
+            </form>
 
-
-                <div class="footer-column">
-
-                    <h4>Connect</h4>
-
-                    <a href="#">
-                        <i class="fa-brands fa-github"></i>
-                        GitHub
-                    </a>
-
-                    <a href="#">
-                        <i class="fa-brands fa-linkedin"></i>
-                        LinkedIn
-                    </a>
-
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                        Instagram
-                    </a>
-
+            <!-- REGISTER FORM -->
+            <form id="registerFormSection" onsubmit="handleAuthSubmit(event, 'register')" class="space-y-4 hidden">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-1">Create Account</h3>
+                <p class="text-xs text-slate-500 mb-4">Register with mobile OTP verification.</p>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Full
+                        Name</label>
+                    <input type="text" id="regName" required placeholder="Enter your full name"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600">
                 </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Mobile
+                        Number</label>
+                    <div class="flex space-x-2">
+                        <input type="tel" id="regMobile" required placeholder="Mobile number"
+                            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600">
+                        <button type="button" onclick="sendOtp()"
+                            class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 rounded-xl text-xs whitespace-nowrap">Send
+                            OTP</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Enter
+                        OTP</label>
+                    <input type="text" id="regOtp" required placeholder="6-digit OTP (Demo: 123456)"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Password (Min
+                        8 Characters)</label>
+                    <div class="relative">
+                        <input type="password" id="regPassword" required minlength="8" placeholder="••••••••"
+                            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600 pr-12">
+                        <button type="button" onclick="togglePasswordVisibility('regPassword', 'regEyeIcon')"
+                            class="absolute right-4 top-3.5 text-slate-400 hover:text-slate-700">
+                            <i class="fa-solid fa-eye" id="regEyeIcon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Select
+                        Role</label>
+                    <select id="regRole"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600">
+                        <option value="Citizen">Citizen</option>
+                        <option value="Authority / Admin">Authority / Admin</option>
+                        <option value="Moderator">Moderator</option>
+                    </select>
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-indigo-500/20 transition mt-2">
+                    Verify & Register
+                </button>
+            </form>
+        </div>
+    </div>
 
+    <!-- PROFILE MODAL -->
+    <div id="profileModal"
+        class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-8 shadow-2xl border border-slate-200 text-center relative">
+            <button onclick="closeProfileModal()"
+                class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl font-extrabold mx-auto mb-4 shadow-inner"
+                id="profileAvatar">
+                U
             </div>
+            <h3 class="text-2xl font-extrabold text-slate-900" id="profileName">User Name</h3>
+            <p class="text-xs font-bold text-indigo-600 uppercase tracking-widest mt-1 mb-4" id="profileRole">Citizen
+            </p>
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-left mb-6 space-y-2 text-sm">
+                <div class="flex justify-between text-slate-600">
+                    <span>Mobile:</span>
+                    <span class="font-semibold text-slate-900" id="profileMobile">+91 XXXXXXXXXX</span>
+                </div>
+                <div class="flex justify-between text-slate-600">
+                    <span>Account Status:</span>
+                    <span class="font-semibold text-emerald-600">Verified Active</span>
+                </div>
+            </div>
+            <button onclick="logout()"
+                class="w-full bg-red-50 hover:bg-red-100 text-red-600 font-bold py-3 rounded-xl transition">
+                <i class="fa-solid fa-right-from-bracket mr-2"></i> Logout
+            </button>
+        </div>
+    </div>
 
-        </footer>
+    <!-- REPORT ISSUE MODAL (Expanded Issue Types) -->
+    <div id="reportModal"
+        class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+            class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeReportModal()"
+                class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Report Civic Issue</h3>
+            <p class="text-sm text-slate-500 mb-6">Submit location and evidence for AI duplicate classification[cite:
+                3].</p>
+            <form onsubmit="submitReport(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Issue
+                        Type</label>
+                    <select
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600">
+                        <option>Pothole / Damaged Road</option>
+                        <option>Garbage Accumulation & Dumping</option>
+                        <option>Broken / Non-Functional Streetlight</option>
+                        <option>Waterlogging & Drainage Overflow</option>
+                        <option>Stray Animal Hazard</option>
+                        <option>Damaged Public Signage / Infrastructure</option>
+                        <option>Illegal Parking & Obstruction</option>
+                        <option>Public Toilet Maintenance Issue</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Location /
+                        Area Address</label>
+                    <input type="text" required placeholder="e.g. Main Street, Near City Park"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Detailed
+                        Description</label>
+                    <textarea rows="3" placeholder="Describe the severity..."
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-indigo-600"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Upload Photo
+                        Evidence</label>
+                    <input type="file" required
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2 text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-indigo-500/20 transition">
+                    Submit to CiviQ AI Engine
+                </button>
+            </form>
+        </div>
+    </div>
 
-    </main>
+    <!-- JavaScript Functions -->
+    <script>
+        function openLoginModal() { document.getElementById('loginModal').classList.remove('hidden'); }
+        function closeLoginModal() { document.getElementById('loginModal').classList.add('hidden'); }
+        function openReportModal() { document.getElementById('reportModal').classList.remove('hidden'); }
+        function closeReportModal() { document.getElementById('reportModal').classList.add('hidden'); }
+        function openProfileModal() { document.getElementById('profileModal').classList.remove('hidden'); }
+        function closeProfileModal() { document.getElementById('profileModal').classList.add('hidden'); }
 
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        }
 
-    <script src="script.js"></script>
+        function togglePasswordVisibility(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
 
+        function switchTab(tab) {
+            if (tab === 'login') {
+                document.getElementById('loginFormSection').classList.remove('hidden');
+                document.getElementById('registerFormSection').classList.add('hidden');
+                document.getElementById('loginTabBtn').className = "flex-1 py-2.5 text-sm font-bold rounded-xl bg-white text-slate-900 shadow-sm transition";
+                document.getElementById('registerTabBtn').className = "flex-1 py-2.5 text-sm font-bold rounded-xl text-slate-500 transition";
+            } else {
+                document.getElementById('loginFormSection').classList.add('hidden');
+                document.getElementById('registerFormSection').classList.remove('hidden');
+                document.getElementById('registerTabBtn').className = "flex-1 py-2.5 text-sm font-bold rounded-xl bg-white text-slate-900 shadow-sm transition";
+                document.getElementById('loginTabBtn').className = "flex-1 py-2.5 text-sm font-bold rounded-xl text-slate-500 transition";
+            }
+        }
+
+        let currentUser = null;
+
+        function sendOtp() {
+            const mobile = document.getElementById('regMobile').value;
+            if (!mobile || mobile.length < 10) {
+                alert('Please enter a valid 10-digit mobile number first.');
+                return;
+            }
+            alert('OTP sent successfully to ' + mobile + ' (Demo OTP: 123456)');
+        }
+
+        function handleAuthSubmit(event, type) {
+            event.preventDefault();
+            if (type === 'login') {
+                const mobile = document.getElementById('loginMobile').value;
+                const password = document.getElementById('loginPassword').value;
+                const role = document.getElementById('loginRole').value;
+                if (password.length < 8) {
+                    alert('Password must be at least 8 characters long.');
+                    return;
+                }
+                currentUser = { name: "Dilkhush Kumar", mobile: mobile, role: role };
+            } else {
+                const password = document.getElementById('regPassword').value;
+                if (password.length < 8) {
+                    alert('Password must be at least 8 characters long.');
+                    return;
+                }
+                const name = document.getElementById('regName').value;
+                const mobile = document.getElementById('regMobile').value;
+                const role = document.getElementById('regRole').value;
+                currentUser = { name: name, mobile: mobile, role: role };
+            }
+
+            closeLoginModal();
+            updateNavbarAuth();
+            alert('Authentication successful! Welcome, ' + currentUser.name + ' (' + currentUser.role + ')');
+        }
+
+        function updateNavbarAuth() {
+            const authContainer = document.getElementById('authContainer');
+            const mobileAuthContainer = document.getElementById('mobileAuthContainer');
+
+            const profileBtnHTML = `
+                <button onclick="openProfileModal()" class="flex items-center space-x-3 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-xl border border-slate-200 transition">
+                    <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">
+                        ${currentUser.name.charAt(0).toUpperCase()}
+                    </div>
+                    <div class="text-left hidden sm:block">
+                        <p class="text-xs font-bold text-slate-800 leading-tight">${currentUser.name}</p>
+                        <p class="text-[10px] text-indigo-600 font-semibold uppercase">${currentUser.role}</p>
+                    </div>
+                </button>
+            `;
+
+            if (currentUser) {
+                authContainer.innerHTML = profileBtnHTML;
+                mobileAuthContainer.innerHTML = profileBtnHTML;
+
+                document.getElementById('profileAvatar').innerText = currentUser.name.charAt(0).toUpperCase();
+                document.getElementById('profileName').innerText = currentUser.name;
+                document.getElementById('profileRole').innerText = currentUser.role;
+                document.getElementById('profileMobile').innerText = currentUser.mobile;
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            closeProfileModal();
+            const loginBtnHTML = `
+                <button onclick="openLoginModal()" class="flex items-center space-x-2 border border-slate-300 hover:border-indigo-600 hover:text-indigo-600 text-slate-700 font-semibold px-4 py-2.5 rounded-xl transition text-sm">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Login / Register</span>
+                </button>
+            `;
+            document.getElementById('authContainer').innerHTML = loginBtnHTML;
+            document.getElementById('mobileAuthContainer').innerHTML = loginBtnHTML;
+            alert('Logged out successfully.');
+        }
+
+        function submitReport(event) {
+            event.preventDefault();
+            alert('Issue submitted successfully! Tracking ID generated: #CIV-2026-942. AI engine is clustering duplicates[cite: 3, 5].');
+            closeReportModal();
+        }
+
+        function trackComplaint() {
+            const val = document.getElementById('trackIdInput').value;
+            const resDiv = document.getElementById('trackResult');
+            if (!val) {
+                alert('Please enter a valid complaint ID.');
+                return;
+            }
+            resDiv.classList.remove('hidden');
+            document.getElementById('resTitle').innerText = "Complaint #" + val.toUpperCase();
+        }
+    </script>
 </body>
+
 </html>
