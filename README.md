@@ -642,4 +642,4 @@ CiviQ is designed with a scalable vision:
 
 
 
-###~Thank You
+~Thank You
